@@ -6,7 +6,6 @@ from typing import Optional
 class Invoice:
     """Invoice object.
 
-
     Args:
         invoice_id (int): Unique ID for this invoice.
         status (str): Status of the invoice, can be either “active”, “paid” or “expired”.

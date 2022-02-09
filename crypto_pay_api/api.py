@@ -114,12 +114,13 @@ class CryptoPay:
         """
         Use this method to get invoices of your app. On success, returns array of invoices.
 
-        :param asset: Currency codes separated by comma. Supported assets: “BTC”, “TON”, “ETH” (testnet only), “USDT”, “USDC” and “BUSD”. Defaults to all assets.
-        :param invoice_ids: Invoice IDs separated by comma.
-        :param status: Status of invoices to be returned. Available statuses: “active” and “paid”. Defaults to all statuses.
-        :param offset: Offset needed to return a specific subset of invoices. Default is 0.
-        :param count: Number of invoices to be returned. Values between 1-1000 are accepted. Defaults to 100.
-        :return:
+        Args:
+            asset: Currency codes separated by comma. Supported assets: “BTC”, “TON”, “ETH” (testnet only), “USDT”, “USDC” and “BUSD”. Defaults to all assets.
+            invoice_ids: Invoice IDs separated by comma.
+            status: Status of invoices to be returned. Available statuses: “active” and “paid”. Defaults to all statuses.
+            offset: Offset needed to return a specific subset of invoices. Default is 0.
+            count: Number of invoices to be returned. Values between 1-1000 are accepted. Defaults to 100.
+            :return:
         """
 
         response = self.client.get(
