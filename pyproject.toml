@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "crypto-pay-api"
+version = "0.1.0"
+description = ""
+authors = ["tososomaru <delatornikita@gmail.com>"]
+packages = [
+    {include = "crypto_pay_api"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+httpx = "^0.22.0"
+dacite = "^1.6.0"
+StrEnum = "^0.4.7"
+
+[tool.poetry.dev-dependencies]
+sphinx-rtd-theme = "^1.0.0"
+Sphinx = "^4.4.0"
+black = "^22.1.0"
+pytest = "^7.0.0"
+sphinx-autodoc-typehints = "^1.16.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
