@@ -42,9 +42,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">crypto-pay-api</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">crypto_pay_api package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#crypto-pay-api-api-module">crypto_pay_api.api module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#crypto-pay-api-client-module">crypto_pay_api.client module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#crypto-pay-api-enums-module">crypto_pay_api.enums module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crypto_pay_api.api">crypto_pay_api.api module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crypto_pay_api.client">crypto_pay_api.client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crypto_pay_api.enums">crypto_pay_api.enums module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-crypto_pay_api.items">crypto_pay_api.items module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-crypto_pay_api">Module contents</a></li>
 </ul>
@@ -84,14 +84,243 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
-<section id="crypto-pay-api-api-module">
-<h2>crypto_pay_api.api module<a class="headerlink" href="#crypto-pay-api-api-module" title="Permalink to this headline"></a></h2>
+<section id="module-crypto_pay_api.api">
+<span id="crypto-pay-api-api-module"></span><h2>crypto_pay_api.api module<a class="headerlink" href="#module-crypto_pay_api.api" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crypto_pay_api.api.</span></span><span class="sig-name descname"><span class="pre">CryptoPay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://pay.crypt.bot/api/'</span></em><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.base_url" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.create_invoice">
+<span class="sig-name descname"><span class="pre">create_invoice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paid_btn_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paid_btn_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_anonymous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expires_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.create_invoice" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to create a new invoice. On success, returns an object of the created invoice.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>asset</strong> (<a class="reference internal" href="#crypto_pay_api.enums.Asset" title="crypto_pay_api.enums.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a>) – Currency code. Supported assets: “BTC”, “TON”, “ETH” (testnet only), “USDT”, “USDC” and “BUSD”.</p></li>
+<li><p><strong>amount</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Amount of the invoice in float. For example: 125.50</p></li>
+<li><p><strong>description</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.</p></li>
+<li><p><strong>hidden_message</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Text of the message that will be shown to a user after the invoice is paid. Up to 2o48 characters.</p></li>
+<li><p><strong>paid_btn_name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#crypto_pay_api.enums.Button" title="crypto_pay_api.enums.Button"><code class="xref py py-class docutils literal notranslate"><span class="pre">Button</span></code></a>]) – Name of the button that will be shown to a user after the invoice is paid.</p></li>
+<li><p><strong>paid_btn_url</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Required if paid_btn_name is used. URL to be opened when the button is pressed. You can set any success link (for example, a link to your bot). Starts with https or http.</p></li>
+<li><p><strong>payload</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.</p></li>
+<li><p><strong>allow_comments</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – Allow a user to add a comment to the payment. Default is true.</p></li>
+<li><p><strong>allow_anonymous</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – Allow a user to pay the invoice anonymously. Default is true.</p></li>
+<li><p><strong>expires_in</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – You can set a payment time limit for the invoice in seconds. Values between 1-2678400 are accepted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#crypto_pay_api.items.Invoice" title="crypto_pay_api.items.Invoice"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invoice</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.get_balance">
+<span class="sig-name descname"><span class="pre">get_balance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.get_balance" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to get a balance of your app. Returns array of assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.get_currencies">
+<span class="sig-name descname"><span class="pre">get_currencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.get_currencies" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to get a list of supported currencies. Returns array of currencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.get_exchange_rates">
+<span class="sig-name descname"><span class="pre">get_exchange_rates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.get_exchange_rates" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to get exchange rates of supported currencies. Returns array of currencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.get_invoices">
+<span class="sig-name descname"><span class="pre">get_invoices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invoice_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.get_invoices" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to get invoices of your app. On success, returns array of invoices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>asset</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#crypto_pay_api.enums.Asset" title="crypto_pay_api.enums.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a>]) – Currency codes separated by comma. Supported assets: “BTC”, “TON”, “ETH” (testnet only), “USDT”, “USDC” and “BUSD”. Defaults to all assets.</p></li>
+<li><p><strong>invoice_ids</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Invoice IDs separated by comma.</p></li>
+<li><p><strong>status</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#crypto_pay_api.enums.Status" title="crypto_pay_api.enums.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>]) – Status of invoices to be returned. Available statuses: “active” and “paid”. Defaults to all statuses.</p></li>
+<li><p><strong>offset</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Offset needed to return a specific subset of invoices. Default is 0.</p></li>
+<li><p><strong>count</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Number of invoices to be returned. Values between 1-1000 are accepted. Defaults to 100.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#crypto_pay_api.items.Invoice" title="crypto_pay_api.items.Invoice"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invoice</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.get_me">
+<span class="sig-name descname"><span class="pre">get_me</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.get_me" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to test your app’s authentication token. Requires no parameters.
+On success, returns basic information about an app.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.api.CryptoPay.transfer">
+<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spend_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_send_notification</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.api.CryptoPay.transfer" title="Permalink to this definition"></a></dt>
+<dd><p>Use this method to send coins from your app’s balance to a user.
+On success, returns object of completed transfer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Telegram user ID. User must have previously used &#64;CryptoBot (&#64;CryptoTestnetBot for testnet).</p></li>
+<li><p><strong>asset</strong> (<a class="reference internal" href="#crypto_pay_api.enums.Asset" title="crypto_pay_api.enums.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a>) – Currency code. Supported assets: “BTC”, “TON”, “ETH” (testnet only), “USDT”, “USDC” and “BUSD”.</p></li>
+<li><p><strong>amount</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Amount of the transfer in float. Min $0.1. For example: 125.50</p></li>
+<li><p><strong>spend_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique ID to make your request idempotent and ensure that only one of the transfers with the same spend_id will be accepted by Crypto Pay API. This parameter is useful when the transfer should be retried (i.e. request timeout, connection reset, 500 HTTP status, etc). It can be some unique withdrawal identifier for example. Up to 64 symbols.</p></li>
+<li><p><strong>comment</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Comment for the transfer. Users will see this comment when they receive a notification about the transfer. Up to 1024 symbols.</p></li>
+<li><p><strong>disable_send_notification</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – Pass true if the user should not receive a notification about the transfer. Default is false.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#crypto_pay_api.items.Transfer" title="crypto_pay_api.items.Transfer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transfer</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="crypto-pay-api-client-module">
-<h2>crypto_pay_api.client module<a class="headerlink" href="#crypto-pay-api-client-module" title="Permalink to this headline"></a></h2>
+<section id="module-crypto_pay_api.client">
+<span id="crypto-pay-api-client-module"></span><h2>crypto_pay_api.client module<a class="headerlink" href="#module-crypto_pay_api.client" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crypto_pay_api.client.ApiClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crypto_pay_api.client.</span></span><span class="sig-name descname"><span class="pre">ApiClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.client.ApiClient" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#crypto_pay_api.client.Client" title="crypto_pay_api.client.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">crypto_pay_api.client.Client</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.client.ApiClient.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.client.ApiClient.get" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="crypto_pay_api.client.Client">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crypto_pay_api.client.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><a class="headerlink" href="#crypto_pay_api.client.Client" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="crypto_pay_api.client.Client.fetch">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.client.Client.fetch" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="crypto-pay-api-enums-module">
-<h2>crypto_pay_api.enums module<a class="headerlink" href="#crypto-pay-api-enums-module" title="Permalink to this headline"></a></h2>
+<section id="module-crypto_pay_api.enums">
+<span id="crypto-pay-api-enums-module"></span><h2>crypto_pay_api.enums module<a class="headerlink" href="#module-crypto_pay_api.enums" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crypto_pay_api.enums.</span></span><span class="sig-name descname"><span class="pre">Asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.enums.Asset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">strenum.StrEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset.BTC">
+<span class="sig-name descname"><span class="pre">BTC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BTC'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Asset.BTC" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset.BUSD">
+<span class="sig-name descname"><span class="pre">BUSD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BUSD'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Asset.BUSD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset.ETH">
+<span class="sig-name descname"><span class="pre">ETH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ETH'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Asset.ETH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset.TON">
+<span class="sig-name descname"><span class="pre">TON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TON'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Asset.TON" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset.USDC">
+<span class="sig-name descname"><span class="pre">USDC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'USDC'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Asset.USDC" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Asset.USDT">
+<span class="sig-name descname"><span class="pre">USDT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'USDT'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Asset.USDT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crypto_pay_api.enums.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.enums.Button" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">strenum.StrEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Button.CALLBACK">
+<span class="sig-name descname"><span class="pre">CALLBACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'callback'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Button.CALLBACK" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Button.OPEN_BOT">
+<span class="sig-name descname"><span class="pre">OPEN_BOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'openBot'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Button.OPEN_BOT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Button.OPEN_CHANNEL">
+<span class="sig-name descname"><span class="pre">OPEN_CHANNEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'openChannel'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Button.OPEN_CHANNEL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Button.VIEW_ITEM">
+<span class="sig-name descname"><span class="pre">VIEW_ITEM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'viewItem'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Button.VIEW_ITEM" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crypto_pay_api.enums.</span></span><span class="sig-name descname"><span class="pre">Status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#crypto_pay_api.enums.Status" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">strenum.StrEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Status.ACTIVE">
+<span class="sig-name descname"><span class="pre">ACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'active'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Status.ACTIVE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crypto_pay_api.enums.Status.PAID">
+<span class="sig-name descname"><span class="pre">PAID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'paid'</span></em><a class="headerlink" href="#crypto_pay_api.enums.Status.PAID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-crypto_pay_api.items">
 <span id="crypto-pay-api-items-module"></span><h2>crypto_pay_api.items module<a class="headerlink" href="#module-crypto_pay_api.items" title="Permalink to this headline"></a></h2>
