@@ -6,8 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      environment_type: ${{ secrets.ENVIRONMENT_TYPE }}
     steps:
     - uses: actions/setup-python@v2
     - uses: actions/checkout@master
@@ -17,6 +15,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r docs/requirements.txt
+        echo "{environment_type}={prod}" >> $.env
     - name: Build and Commit
       uses: sphinx-notes/pages@v2
     - name: Push changes
