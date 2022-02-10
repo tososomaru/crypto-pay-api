@@ -4,7 +4,6 @@ from dacite import from_dict
 from .client import ApiClient
 from .enums import Button, Asset, Status
 from .items import Invoice, Transfer
-from .config import app_config
 
 
 class CryptoPay:
@@ -120,7 +119,6 @@ class CryptoPay:
             status: Status of invoices to be returned. Available statuses: “active” and “paid”. Defaults to all statuses.
             offset: Offset needed to return a specific subset of invoices. Default is 0.
             count: Number of invoices to be returned. Values between 1-1000 are accepted. Defaults to 100.
-            :return:
         """
 
         response = self.client.get(

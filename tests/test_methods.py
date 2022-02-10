@@ -1,32 +1,27 @@
-import os
-
-from crypto_pay_api.api import CryptoPay
 from crypto_pay_api.enums import Asset, Button
 
-api = CryptoPay(token=os.getenv("token"))
 
-
-def test_get_invoices():
+def test_get_invoices(api):
     api.get_invoices()
 
 
-def test_get_me():
+def test_get_me(api):
     api.get_me()
 
 
-def test_get_balance():
+def test_get_balance(api):
     api.get_balance()
 
 
-def test_get_currencies():
+def test_get_currencies(api):
     api.get_currencies()
 
 
-def test_get_exchange_rates():
+def test_get_exchange_rates(api):
     api.get_exchange_rates()
 
 
-def test_create_invoice():
+def test_create_invoice(api):
     api.create_invoice(
         asset=Asset.TON.value,
         amount='1',
