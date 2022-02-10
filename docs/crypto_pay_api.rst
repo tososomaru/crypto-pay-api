@@ -9,6 +9,7 @@ crypto\_pay\_api.api module
 
 .. automodule:: crypto_pay_api.api
    :members:
+   :undoc-members:
    :show-inheritance:
 
 crypto\_pay\_api.client module
