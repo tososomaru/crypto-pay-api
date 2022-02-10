@@ -8,7 +8,7 @@ from .config import app_config
 
 
 class CryptoPay:
-    base_url = app_config.base_url
+    base_url = "https://pay.crypt.bot/api/"
 
     def __init__(self, token, client=None):
         self.client = client or ApiClient(
